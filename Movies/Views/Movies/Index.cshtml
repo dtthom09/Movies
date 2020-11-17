@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Movie>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--<head>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>-->
+<head>
+    <style>
+        table {
+            table-layout: fixed;
+            width: 100%;
+            border-collapse: collapse;
+            border: 3px solid purple;
+        }
+
+        thead th:nth-child(1) {
+            width: 30%;
+        }
+
+        thead th:nth-child(2) {
+            width: 20%;
+        }
+
+        thead th:nth-child(3) {
+            width: 15%;
+        }
+
+        thead th:nth-child(4) {
+            width: 35%;
+        }
+
+        th, td {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+
+<h2>Movies</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <td>
+                <h4>
+                    Movie
+                </h4>
+            </td>
+        </tr>
+    </thead>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>
+                <text>
+                    @m.Name
+                </text>
+            </td>
+        </tr>
+    }
+</table>
