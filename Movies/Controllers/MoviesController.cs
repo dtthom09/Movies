@@ -14,33 +14,35 @@ namespace Movies.Controllers
         {
             new Movie
             {
-            Id = 1,
-            Name = "Titanic",
-            Date = new DateTime(1997, 12, 19),
-            Actors = new List<string> { "Leonardo", "Kate" },
-            Description = "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
-            Directors = new List<string> { "James Cameron" },
-            Genre = "Drama/Romance"
-        },
-        new Movie
-        {
-            Id = 2,
-            Name = "No Country for Old Men",
-            Date = new DateTime(2007, 11, 21),
-            Actors = new List<string> { "Tommy Lee Jones", "Javier Bardmen" },
-            Description = "Violence and mayhem ensue after a hunter stumbles upon a drug deal " +
-            "gone wrong and more than two million dollars in cash near the Rio Grande.",
-            Directors = new List<string> { "Joel Coen", "Ethan Coen" },
-            Genre = "Crime/Thriller"
-        }
+                Id = 1,
+                Name = "Titanic",
+                Date = new DateTime(1997, 12, 19),
+                Actors = new List<string> { "Leonardo", "Kate" },
+                Description = "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+                Directors = new List<string> { "James Cameron" },
+                Genre = "Drama/Romance"
+            },
+            new Movie
+            {
+                Id = 2,
+                Name = "No Country for Old Men",
+                Date = new DateTime(2007, 11, 21),
+                Actors = new List<string> { "Tommy Lee Jones", "Javier Bardmen" },
+                Description = "Violence and mayhem ensue after a hunter stumbles upon a drug deal " +
+                "gone wrong and more than two million dollars in cash near the Rio Grande.",
+                Directors = new List<string> { "Joel Coen", "Ethan Coen" },
+                Genre = "Crime/Thriller"
+            }
         };
             // GET: Movies/Random
         public IActionResult Random()
         {
             var customers = new List<Customers>
            {
-               new Customers { Name = "Customer 1"},
-               new Customers { Name = "Customer 2"}
+               new Customers { Name = "John Smith"},
+               new Customers { Name = "Mary Williams"},
+               new Customers { Name = "Jerry Smith"},
+               new Customers { Name = "Billy Bob"}
            };
 
             var viewModel = new RandomMovieViewModel
@@ -50,12 +52,9 @@ namespace Movies.Controllers
             };
 
             return View(viewModel);
-            //return RedirectToAction("Index", "Home", new { page = 1, sortBy="name"});
-            //return Content("Hello World");
         }
         public ActionResult Edit(int id)
         {
-
             return Content("id: " + id);
         }
         //Movies/Actors
@@ -74,8 +73,8 @@ namespace Movies.Controllers
 
             if (String.IsNullOrWhiteSpace(sortBy))
                 sortBy = "name";
+
             return View(movie);
-            //review 36:00 step by step asp.net mvc 
             //return Content(String.Format("pageIndex={0)&sortBy={1}", pageIndex, sortBy));
         }
         public ActionResult ByReleaseDate(int year, int month)
