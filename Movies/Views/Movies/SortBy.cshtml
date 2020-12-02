@@ -1,0 +1,35 @@
+﻿@model Movies.ViewModels.RandomMovieViewModel
+@{
+    ViewData["Title"] = "SortBy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SortBy</h2>
+
+<form>
+    <fieldset>
+        <legend>Selecting elements</legend>
+        <p>
+            <label>Sort By:</label>
+            <select id="myList" onchange="myFunction()">
+                <option value="0">Select</option>
+                <option value="1">Name</option>
+                <option value="2">Date</option>
+                <option value="3">Rating</option>
+            </select>
+        </p>
+    </fieldset>
+</form>
+<p id="cust"></p>
+<script src="~/lib/bootstrap/dist/js/SortBy.js">
+</script>
+
+@*<textarea>
+    @foreach(var c in customers)
+    {
+        c
+        //c.Sort(<IComparer<>);
+    }
+
+customers = Model.Customers.OrderBy(c => c.Name).ToList();
+</textarea>*@

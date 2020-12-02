@@ -34,17 +34,17 @@ namespace Movies.Controllers
                 Genre = "Crime/Thriller"
             }
         };
-            // GET: Movies/Random
-        public IActionResult Random()
+
+        List<Customers> customers = new List<Customers>
         {
-            var customers = new List<Customers>
-           {
                new Customers { Name = "John Smith"},
                new Customers { Name = "Mary Williams"},
                new Customers { Name = "Jerry Smith"},
                new Customers { Name = "Billy Bob"}
-           };
-
+        };
+        // GET: Movies/Random
+        public IActionResult Random()
+        {
             var viewModel = new RandomMovieViewModel
             {
                 Movie = movie[0],
@@ -80,6 +80,15 @@ namespace Movies.Controllers
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content(year + "/" + month);
+        }
+        public ActionResult SortBy()
+        {
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie[0],
+                Customers = customers
+            };
+            return View(viewModel);
         }
     }
 }
